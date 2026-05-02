@@ -219,7 +219,7 @@ if page == "🏠 Home":
             plot_bgcolor="rgba(0,0,0,0)", xaxis_title="Price (₹ Lakhs)",
             yaxis_title="Count", font=dict(family="Inter")
         )
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
 
     with col2:
         loc_avg = df_raw.groupby("location")["price"].mean().sort_values(ascending=True) / 100000
@@ -231,7 +231,7 @@ if page == "🏠 Home":
             plot_bgcolor="rgba(0,0,0,0)", xaxis_title="Avg Price (₹ Lakhs)",
             yaxis_title="", font=dict(family="Inter"), showlegend=False
         )
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
 
 
 # ══════════════════════════════════════════════════════════════════════
@@ -251,7 +251,7 @@ elif page == "📊 EDA Dashboard":
                              color_continuous_scale="viridis", opacity=0.5)
             fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)",
                               plot_bgcolor="rgba(0,0,0,0)", yaxis_title="Price (₹ Lakhs)")
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
         with col2:
             bhk_avg = df_raw.groupby("bhk")["price"].mean() / 100000
             fig = px.bar(x=bhk_avg.index, y=bhk_avg.values, title="Avg Price by BHK",
@@ -259,7 +259,7 @@ elif page == "📊 EDA Dashboard":
             fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)",
                               plot_bgcolor="rgba(0,0,0,0)", yaxis_title="Avg Price (₹ Lakhs)",
                               xaxis_title="BHK")
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
 
     with tab2:
         numerical = df_raw.select_dtypes(include=[np.number])
@@ -268,7 +268,7 @@ elif page == "📊 EDA Dashboard":
                         title="Feature Correlation Matrix", aspect="auto")
         fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)",
                           width=800, height=700)
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
 
     with tab3:
         fig = px.box(df_raw, x="location", y=df_raw["price"] / 100000,
@@ -276,7 +276,7 @@ elif page == "📊 EDA Dashboard":
         fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)",
                           plot_bgcolor="rgba(0,0,0,0)", showlegend=False,
                           yaxis_title="Price (₹ Lakhs)", xaxis_tickangle=-45)
-        st.plotly_chart(fig, width="stretch")
+        st.plotly_chart(fig, use_container_width=True)
 
     with tab4:
         col1, col2 = st.columns(2)
@@ -286,14 +286,14 @@ elif page == "📊 EDA Dashboard":
             fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)",
                               plot_bgcolor="rgba(0,0,0,0)", showlegend=False,
                               yaxis_title="Price (₹ Lakhs)")
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
         with col2:
             fig = px.box(df_raw, x="furnishing", y=df_raw["price"] / 100000,
                          color="furnishing", title="Price by Furnishing")
             fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)",
                               plot_bgcolor="rgba(0,0,0,0)", showlegend=False,
                               yaxis_title="Price (₹ Lakhs)")
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
 
 
 # ══════════════════════════════════════════════════════════════════════
@@ -339,7 +339,7 @@ elif page == "🤖 Model Comparison":
                          color="R²", color_continuous_scale="viridis")
             fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)",
                               plot_bgcolor="rgba(0,0,0,0)", yaxis=dict(autorange="reversed"))
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
 
             # Table
             display_df = eval_df.copy()
@@ -371,7 +371,7 @@ elif page == "🤖 Model Comparison":
                 xaxis_title="Actual Price (₹ Lakhs)",
                 yaxis_title="Predicted Price (₹ Lakhs)",
             )
-            st.plotly_chart(fig, width="stretch")
+            st.plotly_chart(fig, use_container_width=True)
 
 
 # ══════════════════════════════════════════════════════════════════════
