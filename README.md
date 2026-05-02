@@ -255,4 +255,4 @@ If you found this project helpful, please give it a ⭐ on GitHub!
 
 ---
 
-*Built with ❤️ by [CH S K CHAITANYA](https://github.com/CH-S-K-CHAITANYA) for Data Science & ML Portfolio*
+*Built by [CH S K CHAITANYA](https://github.com/CH-S-K-CHAITANYA) for Data Science & ML Portfolio*
